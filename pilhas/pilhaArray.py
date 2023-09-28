@@ -1,6 +1,6 @@
 class Stack:
     def __init__(self, Capacity=1):
-        self.top = 1
+        self.top = -1
         self.Capacity = Capacity
         self.A = [None] * Capacity
 
@@ -30,7 +30,7 @@ class Stack:
     
     def isFull(self):
         return self.Capacity == self.top+1
-    
+      
 pilha = Stack(3)
 
 print(pilha.isEmpty())
@@ -38,3 +38,6 @@ print(pilha.isEmpty())
 pilha.push(30)
 
 print(pilha.peek())
+
+
+
