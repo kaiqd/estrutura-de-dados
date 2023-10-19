@@ -47,17 +47,12 @@ class Stack(object):
 
     def print_stack(self):
         current = self.head
-        print("Elementos da pilha:")
         while current:
             print(current.data)
             current = current.next
-    
-    def isEmpty(self):
-        return self.head is None
 
     def print_stack(self):
         current = self.head
-        print("Elementos da pilha:")
         while current:
             print(current.data)
             current = current.next
@@ -65,37 +60,68 @@ class Stack(object):
 pilha = Stack()
 
 pilha.push(40)
-print(pilha.pop()) # remove e retorna 40
-print(pilha.isEmpty()) # retorna True
+#print(pilha.pop()) # remove e retorna 40
+#print(pilha.isEmpty()) # retorna True
+
+def transferir_pilhas(S, T):
+    while not S.isEmpty():
+        T.push(S.pop())
 
 
-# Crie um programa que verifique se os delimitadores de uma expressão matemática estão corretamente dispostos.
+pilha_S = Stack()
+pilha_T = Stack()
 
-def verifica_delimitadores(expressao):
+# Adicionando alguns elementos à pilha S
+pilha_S.push(1)
+pilha_S.push(2)
+pilha_S.push(3)
+pilha_S.push(4)
+
+print("Pilha S antes da transferencia: ")
+pilha_S.print_stack()
+
+# Transferindo os dados de S para T
+transferir_pilhas(pilha_S, pilha_T)
+
+print("\nPilha T apos a transferencia:")
+pilha_T.print_stack()
+
+def removerElementos(pilha):
+    if pilha.peak is not None:
+        pilha.pop()
+        removerElementos(pilha)
+
+def reverse(array):
     stack = Stack()
-    delimitadores_abertos = "([{"
-    delimitadores_fechados = ")]}"
+    array = []
+    for element in array:
+        stack.push(element)
+    while not stack.isEmpty():
+        array.append(stack.pop())
+    return array
 
-    for char in expressao:
-        if char in delimitadores_abertos:
-            stack.push(char)
-        elif char in delimitadores_fechados:
-            if stack.isEmpty():
-                return False
-            topo = stack.pop()
-            if not delimitadores_compativeis(topo, char):
-                return False
+''' array = [4, 3, 2, 1]
+arrayreverso = reverse(array)
 
-    return stack.isEmpty()
+print(array)
+print(arrayreverso)
 
-def delimitadores_compativeis(op, end):
-    return (op == "(" and end == ")") or \
-           (op == "[" and end == "]") or \
-           (op == "{" and end == "}")
+def push6(data):
+    if a[0] == n-1:
+        return None
+    a[0] += 1
+    a[a[0]] = data
+    return None
 
-# Exemplo de uso
-expressao1 = "({[1 + 2] * 3})"
-expressao2 = "({[1 + 2] * 3)}"
+def pop6():
+    if a[0] == 0
+        return None
+    d = a[a[0]]
+    a[0] -= 1
+    return d
 
-print(verifica_delimitadores(expressao1))  # Deve retornar True
-print(verifica_delimitadores(expressao2))  # Deve retornar False
+def peek6():
+    a[0] = 0 '''
+
+
+
